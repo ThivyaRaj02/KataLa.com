@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KaTaLa</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.png">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #82d7fa; /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+	 h2 {
+    font-size: 30px;
+    color: black; /* Text color in hex format */
+   font-family: 'Cursive Font', cursive;
+	font-size: 40px;    
+	margin-top: -140px;
+        }
+
+ .btn { 
+    font-size: 24px;
+    padding: 14px 50px;
+    display: inline-block;
+    margin: 5px;
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+    background: linear-gradient(to bottom, #1f3a93, #26528c); /* Dark Blue to Light Blue gradient */
+    border: 2px solid #1f3a93; /* Dark Blue border */
+    border-radius: 18px; /* Border radius for rounded corners */
+    transition: background 0.3s ease, transform 0.3s ease;
+
+}
+
+.btn:hover {
+    background: linear-gradient(to bottom, #26528c, #4682b4); /* Light Blue to Dark Blue gradient on hover */
+    transform: scale(1.1); /* Scale the button on hover */
+}
+
+.btn:active {
+    background: linear-gradient(to bottom, #4682b4, #87cefa); /* Light Sky Blue to Dark Blue gradient on click */
+    transform: scale(1.2); /* Scale the button more on click */
+}
+        .back-btn {
+            max-width: 20%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-right: 1050px;
+            margin-bottom: 10px; /* Adjusted margin to reduce bottom space */
+            cursor: pointer;
+            position: left;
+            right: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%; /* Adjust the width as needed */
+            margin-top: 10px; /* Adjust the margin as needed */
+			 font-size: 24px;
+        }
+		  
+        .centered-btn {
+		    font-size: 24px;
+            padding: 25px 38px;
+            margin: 5px;
+			margin-left: 180px;
+            display: inline-block;
+            text-decoration: none;
+           color: #ffffff; /* White text color */
+    background: linear-gradient(to bottom, #1f3a93, #26528c); /* Dark Blue to Light Blue gradient */
+    border: 2px solid #1f3a93; /* Dark Blue border */
+    border-radius: 18px; /* Border radius for rounded corners */
+    transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .centered-btn:hover {
+             background: linear-gradient(to bottom, #26528c, #4682b4); /* Light Blue to Dark Blue gradient on hover */
+           transform: scale(1.1); /* Scale the button on hover */
+        }
+
+        .centered-btn:active {
+            background: linear-gradient(to bottom, #4682b4, #87cefa); /* Light Sky Blue to Dark Blue gradient on click */
+             transform: scale(1.2); /* Scale the button more on click */
+        }
+
+	</style>
+<script>
+        var sound1 = new Audio();
+		  sound1.src = './audio/ButtonSound/sound1.mp3';
+            
+    </script>
+
+</head>
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009"
+    crossorigin="anonymous"></script>
+<audio id="backgroundMusic" src="./audio/Bgm/bgm3.mp3" loop></audio>
+<header>
+    <img src="./assets/homebutton.png" alt="Back Icon" class="back-btn" onclick="playSoundAndNavigate('./home.html','sound1')" width="80" height="80">
+ <audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>
+</header>
+
+<body>
+  <div class="container">
+    <div id="home" class="flex-center flex-column">
+        <h2>KUIZ</h2>
+        <div class="button-container">
+            <!-- Left-side button -->
+            <button class="btn" onclick="playSoundAndNavigate('./game.html', 'sound6')">Kata Nama</button>
+            <audio id="sound6" src="./audio/Topic/kn.mp3"></audio>
+            <!-- Right-side button -->
+            <button class="btn" onclick="playSoundAndNavigate('./game1.html', 'sound2')">Kata Kerja</button>
+            <audio id="sound2" src="./audio/Topic/kk.mp3"></audio>
+        </div>
+        <br><br><br>
+        <div class="button-container">
+            <!-- Next three buttons in the same row -->
+            <button class="centered-btn" onclick="playSoundAndNavigate('./game2.html', 'sound3')">Kata Adjektif</button>
+            <audio id="sound3" src="./audio/Topic/ka.mp3"></audio>
+        </div>
+        <br><br><br>
+        <div class="button-container">
+            <button class="btn" onclick="playSoundAndNavigate('./game3.html', 'sound4')">Kata Perintah</button>
+            <audio id="sound4" src="./audio/Topic/kp.mp3"></audio>
+            <button class="btn" onclick="playSoundAndNavigate('./game4.html', 'sound5')">Kata Tanya</button>
+            <audio id="sound5" src="./audio/Topic/kt.mp3"></audio>
+        </div>
+    </div>
+</div>
+
+
+ <script>
+        var sound1 = new Audio();
+        sound1.src = './audio/ButtonSound/sound1.mp3';
+
+        function playSoundAndNavigate(url, soundId) {
+            const audioElement = document.getElementById(soundId);
+
+            if (audioElement) {
+                audioElement.play();
+                
+                // Event listener for the 'ended' event of the audio element
+                audioElement.addEventListener('ended', function() {
+                    // Navigate to the specified destination after the sound ends
+                    window.location.href = url;
+                });
+            }
+        }
+    </script>
+			<script>
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        backgroundMusic.volume = 0.2;  // Set the volume to 20%
+        document.addEventListener('mouseover', playBackgroundMusic);
+
+        function playBackgroundMusic() {
+            backgroundMusic.play();
+        }
+    </script>
+</head>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KaTaLa</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.png">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', Comic Sans MS;
+            background-color: #82d7fa; /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+
+        header {
+            padding: 20px;
+            align-items: left;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-left: 20px;
+        }
+
+        h2, a {
+            font-size: 40px;
+            margin-top: 30px;
+            align-items: center;
+        }
+
+        a {
+            margin-left: 300px;
+            margin-top: -250px;
+            margin-bottom: -50px;
+            font-size: 28px;
+            text-decoration: none;
+            display: inline-block;
+            animation: upDown 2s infinite alternate;
+        }
+
+        p {
+            font-size: 20px;
+            margin-top: 30px;
+            font-style: italic;
+            font-weight: bold;
+        }
+
+        @keyframes upDown {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(10px);
+            }
+        }
+    </style>
+</head>
+<script async src="https://pagead2.googlesyndication.com/pagead/jsbygoogle.js?client=ca-pub-3775445581945009" crossorigin="anonymous"></script>
+<body>
+ <audio id="backgroundMusic" src="./audio/Bgm/bgm1.mp3" loop></audio>
+    <script src="script.js"></script>
+
+    <header>
+        <img src="./assets/logo1.png" alt="Logo" width="180" height="180">
+        <h2 style="margin-left: 450px; margin-top: -20px; font-size: 80px;">Selamat Datang <br> <span>ke KataLa</h2>
+    </header>
+
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <img src="./assets/logo.png" alt="Dolphin Image" width="400" style="margin-right: 850px; margin-top: -700px;">
+            <audio id="sound1" src="./audio/Bgm/bgm1.mp3"></audio>
+         <a button id="stopMusic" onclick="StopndAndNavigate('./home.html')" style="margin-left: 300px; margin-top: -250px; margin-bottom: -100px; font-size: 28px; text-decoration: none; display: inline-block;">
+                <span class="hand-cursor">&#x1F449;</span> Sila Sentuh Skrin Untuk Mula <br> <br> <br>
+                <p>Mari Belajar Bersama Lumba-Lumba Pintar</p>
+            </a>    
+        </div>
+
+    <script>
+const backgroundMusic = document.getElementById('backgroundMusic');
+const stopMusicButton = document.getElementById('stopMusic');
+
+document.addEventListener('mouseover', playBackgroundMusic);
+
+stopMusicButton.addEventListener('click', stopMusicAndGo);
+
+function playBackgroundMusic() {
+    backgroundMusic.play();
+}
+
+function stopMusicAndGo() {
+    backgroundMusic.pause();
+    // Add the URL of the page you want to navigate to
+    window.location.href = './home.html'// Replace with your desired URL
+}
+
+    </script>
+ <script>	
+	const interfaceElement = document.getElementById('interface');
+const bgm = document.getElementById('bgm1');
+
+interfaceElement.addEventListener('mouseover', playbgnd);
+
+function playHoverSound() {
+    hoverSound.play();
+}
+
+</script>
+<script>
+const backgroundMusic = document.getElementById('backgroundMusic');
+const stopMusicButton = document.getElementById('stopMusic');
+
+document.addEventListener('mouseover', playBackgroundMusic);
+
+stopMusicButton.addEventListener('click', stopMusicAndGo);
+
+function playBackgroundMusic() {
+    backgroundMusic.play();
+}
+
+  
+ </script>
+</body>
+</html>

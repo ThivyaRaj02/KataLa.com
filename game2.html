@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuiz</title>  
+    <link rel="stylesheet" href="game.css"> 
+    <link rel="stylesheet" href="app.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Comic Sans MS', Comic Sans MS;
+            background-color: #82d7fa; /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 80vh;
+        }
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        h1, h2 {
+            margin-top: 25px;
+            color: black;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        p {
+            font-size: 18px;
+        }
+
+        .options {
+            margin: 20px 0;
+        }
+
+        .options button {
+            background-color: #e0f7ff;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .options button:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .navigation {
+            margin-top: 20px;
+        }
+
+        .navigation button {
+            background-color: #007bff;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+
+        .navigation button:hover {
+            background-color: #0056b3;
+        }
+
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+            margin-top: -50px;
+        }
+
+        .choices {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .choice-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            background-color: #e0f7ff;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .choice-container.correct {
+            background-color: #28a745; /* Green */
+            color: #fff;
+        }
+
+        .choice-container.incorrect {
+            background-color: #dc3545; /* Red */
+            color: #fff;
+        }
+
+
+        .container {
+            background-color: #18b6de;
+            border: 2px solid black;
+            padding: 50px;
+            border-radius: 10px;
+            max-width: 500px;
+            height: 350px;
+            margin-right: 250px;
+            margin-top: -300px; /* Space above container */
+            margin-bottom: 100px; /* Space below container */
+			justify-content: center;
+            align-items: center;
+        }
+        
+        .hud-prefix {
+            font-size: 18px;
+            color: white;
+        }
+
+        .home-icon {
+            width: 350px;
+            margin-left: 20px; /* Adjust margin as needed */
+        }
+		
+
+        #page2 h2 {
+            font-size:34px; /* Adjust as needed */
+			justify-content: center;
+            align-items: center;
+        }
+
+        #page2 p {
+            font-size: 32px; /* Adjust as needed */
+            margin-top: -80px;
+            margin-bottom: -70px; 
+
+        }
+#resultMessage,
+#scoreMessage,
+.navigation {
+    margin-left: 75px; /* Adjust margin as needed */
+}
+
+ 
+    </style>
+	
+    <script>
+        var sound1 = new Audio('./audio/ButtonSound/sound1.mp3');
+        var correctSound = new Audio('./audio/soundtask/correct.mp3');
+        var wrongSound = new Audio('./audio/soundtask/wrong.mp3');
+        var goodResultSound = new Audio('./audio/congrats/goodresult-82807.mp3');
+        var sadTromboneSound = new Audio('./audio/tryagain/wah-wah-sad-trombone-6347.mp3');
+
+        function playSoundAndNavigate(url, sound) {
+            sound.play();
+            setTimeout(function() {
+                window.location.href = url;
+            }, 500); // Adjust the delay to match the duration of the sound
+        }
+
+        function restartQuiz() {
+            window.location.href = 'game.html';
+        }
+
+        function goHome() {
+            window.location.href = 'home.html';
+        }
+    </script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009" crossorigin="anonymous"></script>
+</head>
+<body>
+<audio id="backgroundMusic" src="./audio/Bgm/bgm3.mp3" loop></audio>
+    <header>
+        <audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>
+   
+
+	  <h1>Kuiz Kata Adjektif</h1>
+    </header>
+
+    <img src="./assets/homeicon.png" width="350" class="home-icon">
+
+    <div class="container flex-column flex-center">
+        
+        <div id="hud" class="flex-center">
+            <div id="hud-item">
+
+            <div id="score-container">
+                <div id="score" class="hud-prefix" >
+              <br>
+			  <br>
+			  <br>
+			  <br>
+			  
+			  <div id="page2" class="page">
+    <h2 id="resultMessage"></h2>
+    <h2 id="scoreMessage"></h2>
+   
+    <div class="navigation">
+        <button onclick="restartQuiz()"><img src="./assets/retry.png" alt="Back Icon" class="back-btn" width="50" height="50" onclick="playSoundAndNavigate('home.html', sound1)"</button>
+        <button onclick="goHome()"><img src="./assets/homebutton.png" alt="Back Icon" class="back-btn" width="50" height="50" onclick="playSoundAndNavigate('home.html', sound1)"</button>
+   </div>
+</div>
+    </div> 
+            </div>
+        <div id="quiz-container"></div>
+    </div>
+    <script>
+	const questions = [
+    {
+ question: "Mana satu perkataan yang menggambarkan warna?",
+        choices: ["Kecil", "Biru", "Panas", "Panjang"],
+        answer: 2
+    },
+    {
+        question: "Ayam itu __________.",
+        choices: ["Manis", "Besar", "Sejuk", "Muda"],
+        answer: 2
+    },
+    {
+        question: "Air sungai itu sangat  __________.",
+        choices: ["Berat", "Kelat", "Pahit", "Jernih"],
+        answer: 4
+    },
+    {
+        question: "Kucing saya sangat __________.",
+        choices: ["Pendek", "Sedap", "Tajam", "Tua"],
+        answer: 4
+    },
+    {
+        question: "Pilih perkataan yang menggambarkan rasa:",
+        choices: ["Wangi", "Lembut", "Masin", "Keras"],
+        answer: 3
+    },
+    {
+        question: "Mana satu perkataan yang menggambarkan tekstur?",
+        choices: ["Gelap", "Halus", "Manis", "Panjang"],
+        answer: 2
+    },
+    {
+        question: "Buah itu __________.",
+        choices: ["Manis", "Hangat", "Dingin", "Ringan"],
+        answer: 1
+    },
+    {
+        question: "Pilih perkataan yang menggambarkan bentuk:",
+        choices: ["Tinggi", "Lurus", "Terang", "Masam"],
+        answer: 2
+    },
+    {
+        question: "Mana satu perkataan yang menggambarkan suara?",
+        choices: ["Bising", "Hitam", "Hangat", "Panas"],
+        answer: 1
+    },
+    {
+        question: "Pilih perkataan yang menggambarkan ukuran:",
+        choices: ["Kecil", "Masam", "Wangi", "Lembut"],
+        answer: 1
+    }
+];
+
+      let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const questionContainer = document.getElementById('quiz-container');
+        questionContainer.innerHTML = '';
+
+        const currentQuestion = questions[currentQuestionIndex];
+
+        const questionElement = document.createElement('div');
+        questionElement.classList.add('question');
+        questionElement.innerText = currentQuestion.question;
+
+        const choicesList = document.createElement('div');
+        choicesList.classList.add('choices');
+
+        currentQuestion.choices.forEach((choice, index) => {
+            const choiceContainer = document.createElement('div');
+            choiceContainer.classList.add('choice-container');
+            choiceContainer.addEventListener('click', () => checkAnswer(index + 1, choiceContainer));
+
+            const choicePrefix = document.createElement('div');
+            choicePrefix.classList.add('choice-prefix');
+            choicePrefix.innerText = String.fromCharCode(65 + index);
+
+            const choiceText = document.createElement('div');
+            choiceText.classList.add('choice-text');
+            choiceText.innerText = choice;
+
+            choiceContainer.appendChild(choicePrefix);
+            choiceContainer.appendChild(choiceText);
+
+            choicesList.appendChild(choiceContainer);
+        });
+
+        questionContainer.appendChild(questionElement);
+        questionContainer.appendChild(choicesList);
+
+        const progressText = document.getElementById('progressText');
+        progressText.innerText = `Soalan ${currentQuestionIndex + 1} hingga ${questions.length}`;
+
+        const progressBarFull = document.getElementById('progressBarFull');
+        progressBarFull.style.width = `${((currentQuestionIndex + 1) / questions.length) * 100}%`;
+    }
+
+ function checkAnswer(selectedAnswer, choiceContainer) {
+    const currentQuestion = questions[currentQuestionIndex];
+
+    if (selectedAnswer === currentQuestion.answer) {
+        choiceContainer.classList.add('correct');
+        correctSound.volume = 1; // Set volume to maximum (1.0)
+        correctSound.play();
+        score += 1;
+    } else {
+        choiceContainer.classList.add('incorrect');
+        wrongSound.volume = 1; // Set volume to maximum (1.0)
+        wrongSound.play();
+    }
+
+        updateScore();
+
+        setTimeout(() => {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                loadQuestion();
+            } else {
+                showFinalScore();
+            }
+        }, 1000);
+    }
+
+    function updateScore() {
+        const scoreElement = document.getElementById('score');
+    
+    }
+
+   function showFinalScore() {
+            const questionContainer = document.getElementById('quiz-container');
+            questionContainer.innerHTML = '';
+
+            const page2 = document.getElementById('page2');
+            const resultMessage = document.getElementById('resultMessage');
+            const scoreMessage = document.getElementById('scoreMessage');
+
+            if (score === questions.length * 1) {
+                resultMessage.innerText = 'TAHNIAH!';
+                scoreMessage.innerText = `Skor Anda: ${score}/${questions.length * 1}`;
+            } else {
+                resultMessage.innerText = 'CUBA LAGI!';
+                scoreMessage.innerText = `Skor Anda: ${score}/${questions.length * 1}`;
+            }
+
+            page2.classList.add('active');
+        }
+
+    document.addEventListener('DOMContentLoaded', loadQuestion);
+
+    </script>
+		<script>
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        backgroundMusic.volume = 0.2;  // Set the volume to 20%
+        document.addEventListener('mouseover', playBackgroundMusic);
+
+        function playBackgroundMusic() {
+            backgroundMusic.play();
+        }
+    </script>
+</body>
+</html>

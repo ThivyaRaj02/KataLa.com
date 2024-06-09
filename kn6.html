@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KaTaLa</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.png">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+      <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #82d7fa; /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+       h2 {
+    font-size: 30px; 
+	color: black; /* Text color in hex format */
+    font-family: 'Cursive Font', cursive;
+    max-width: 1800px;
+	align-items: center;
+    justify-content: center;
+	margin-bottom: 50px;
+
+}
+
+h1 {
+    max-width: 260px;
+	max-height: 30px;
+    font-size: 45px;
+    color: black; /* Text color in hex format */
+    font-family: 'Cursive Font', cursive;
+    font-style: normal; /* Normal text */
+    font-weight: 700; /* Extra bold text */
+	font-weight: bold; /* Bold text */
+	justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+.back-btn-container {
+    position: fixed;
+    top: 10px; /* Adjust the top position as needed */
+    right: 80px; /* Adjust the right position as needed */
+    z-index: 1; /* Ensure the back button appears above other content */
+}
+
+.box {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #1d82cf;
+    overflow: auto;
+	text-align: center; 
+}
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: #ffffff; /* White text color */
+            background-color: #1f3a93; /* Dark Blue */
+            border: 2px solid #1f3a93; /* Dark Blue border */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+			 font-size: 24px;
+        }
+
+        .btn:hover {
+            background-color: #4682b4; /* Light Blue on hover */
+        }
+
+        .btn:active {
+            background-color: #87cefa; /* Light Sky Blue on click */
+        }
+
+        .back-btn {
+            max-width: 8%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-right: 1050px;
+            cursor: pointer;
+            position: left;
+            right: 10px;
+        }
+		
+		 .next-btn {
+            max-width: 8%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-left: 1050px;
+            cursor: pointer;
+            position: right;
+            margin-top: -50px;
+			  z-index: 1;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%; /* Adjust the width as needed */
+			font-size: 24px;
+        }
+
+.image-container {
+    position: fixed;
+     top: 40px;
+    left: 645px;
+    z-index: 1;
+	width: 145px;
+	height: 145px;
+    </style>
+  </head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009"
+     crossorigin="anonymous"></script>
+<body>
+  <div class="back-btn-container">
+    <img src="./assets/homebutton.png" alt="Back Icon" class="back-btn" onclick="playSoundAndNavigate('./nota.html')" width="80" height="70">
+  </div>
+  <div class="container">
+    <div id="home" class="flex-center flex-column">
+      <div class="box">
+        <h1>Kata Nama</h1>
+      </div>
+<img src="./assets/logo2.png" alt="Image Description" class="image-container" width="120" style= "margin-left:250px">
+	<br>
+		<div>
+    <br>
+        <br>
+        <img src="./images/Kata Nama/Kata Nama Khas Chart.png" alt="kata nama khas"  width="600" height="400"  style= "margin-bottom=50px" >
+</div>
+<audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>
+      <img src="./assets/button-back.png" alt="Back Icon" class="back-btn" onclick="playSoundAndNavigate('./kn5.html')">
+	   <img src="./assets/button-next.png" alt="Next Icon" class="next-btn" onclick="playSoundAndNavigate('./kn7.html')">
+        </div>
+    </div>
+    <script>
+        function goBack() {
+           window.location.href = 'kn5.html';
+        }
+    </script>
+	
+	<script>
+    function goToNextPage() {
+        window.location.href = 'kn7.html';
+    }
+</script>
+	   
+	   <script>
+function playSoundAndNavigate(destination) {
+    var sound = document.getElementById('sound1');
+    
+    // Event listener for the 'ended' event of the audio element
+    sound.addEventListener('ended', function() {
+        // Navigate to the specified destination after the sound ends
+        window.location.href = destination;
+    });
+
+    // Play the sound when the button is clicked
+    sound.play();
+}
+</script>
+</body>
+</html>

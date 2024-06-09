@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KaTaLa</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.png">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+      <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #82d7fa; /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+      h2 {
+    font-size: 26px; 
+	color: black; /* Text color in hex format */
+    font-family: 'Comic Sans MS', Comic Sans MS; /* Font family */
+    max-width: 1400px;
+    margin-bottom: 8px;
+  
+}
+h3 {
+    font-size: 24px; 
+	color: black; /* Text color in hex format */
+    font-family: 'Cursive Font', cursive;
+	align-items: center;
+    justify-content: center;
+	margin-bottom: 10px;
+	}
+	
+	li {
+    font-size: 22px; 
+	color: black; /* Text color in hex format */
+    font-family: 'Cursive Font', cursive;
+	margin-bottom: 10px;
+	}
+
+h1 {
+    max-width: 450px;
+	max-height: 50px;
+	padding-left:50px;
+	padding-right:50px;
+    font-size: 45px;
+    color: black; /* Text color in hex format */
+    font-family: 'Cursive Font', cursive;
+    font-style: normal; /* Normal text */
+    font-weight: 700; /* Extra bold text */
+	font-weight: bold; /* Bold text */
+	justify-content: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow */
+}
+.box {
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: #1d82cf;
+    max-width: 200%;
+    max-height: 30%;
+    overflow: auto;
+	align-items: left;
+}
+
+.back-btn-container {
+    position: fixed;
+    top: 10px; /* Adjust the top position as needed */
+    right: 80px; /* Adjust the right position as needed */
+    z-index: 1; /* Ensure the back button appears above other content */
+}
+
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            text-decoration: none;
+            color: #ffffff; /* White text color */
+            background-color: #1f3a93; /* Dark Blue */
+            border: 2px solid #1f3a93; /* Dark Blue border */
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+			 font-size: 24px;
+        }
+
+        .btn:hover {
+            background-color: #4682b4; /* Light Blue on hover */
+        }
+
+        .btn:active {
+            background-color: #87cefa; /* Light Sky Blue on click */
+        }
+
+        .back-btn {
+            max-width: 8%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-right: 1050px;
+            cursor: pointer;
+            position: left;
+            right: 10px;
+        }
+		
+		 .next-btn {
+            max-width: 8%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-left: 1050px;
+            cursor: pointer;
+            position: right;
+            margin-top: -50px;
+			  z-index: 1;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%; /* Adjust the width as needed */
+			font-size: 24px;
+        }
+.image-container {
+    position: fixed;
+    top: 60px;
+    left: 660px;
+    z-index: 1;
+	width: 145px;
+	height: 145px;
+} 
+.group-box {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin-top: 20px;
+	align-items: center;
+	justify-content: center;
+}
+
+.group{
+    font-size: 22px; 
+	color: black; /* Text color in hex format */
+    width: 320px;
+    height: 50px;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+	background-color: #82d7fa;
+	color: black;
+	border-radius: 10px;
+} 
+
+.group1{
+    font-size: 22px; 
+	color: black; /* Text color in hex format */
+    width: 180px;
+    height: 40px;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 5px;
+	background-color: blue;
+	color: white;
+	border-radius: 5px;
+} 
+
+.empty-box {
+    font-size: 22px; 
+	color: black; /* Text color in hex format */
+    width: 180px;
+    height: 50px;
+    border: 2px solid #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 10px;
+	background-color: white;
+} 
+    </style>
+  </head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009"
+     crossorigin="anonymous"></script>
+	 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<body>
+  <div class="back-btn-container">
+    <img src="./assets/homebutton.png" alt="Back Icon" class="back-btn" onclick="playSoundAndNavigate('./nota.html')" width="80" height="70">
+  </div>
+  <div class="container">
+    <div id="home" class="flex-center flex-column">
+      <div class="box">
+        <h1>i-Pintar</h1>
+      </div>
+<img src="./assets/logo2.png" alt="Image Description" class="image-container" width="110" style= "margin-left:250px">
+		<br><br>
+		<div class="box" >
+    <br> <h2 align="justify">Sila padankan kata kerja aktif tak transitif dengan betul.</h2>
+	<h2 align="justify">Sila tarik jawapan yang betul dan masukkan ke dalam kotak jawapan yang tepat.
+	<br>
+      <div class="group-box">
+     <label for="empty-box"><h2>Surat itu</h2></label>
+     <div class="empty-box" id="box1"></div><h2>oleh Arif untuk Aina.</h2>
+      </div>   
+	 <div class="group-box">
+		 <label for="empty-box"><h2>Seekor ayam</h2></label>
+       <div class="empty-box" id="box2"></div><h2> oleh ayah di pasar.</h2>
+    </div>
+        <div class="group-box">
+          <div class="group">dibeli</div>
+          <br>
+          <div class="group">ditulis</div>
+		  <br>
+          <div class="group">dibuang</div>
+        </div>
+      </div>
+	  <div id="congratsMessage" style="display: none;">
+  <h2>Congratulations! All answers are correct!</h2>
+</div>
+<br>
+<br>
+
+<audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>
+      <img src="./assets/button-back.png" alt="Back Icon" class="back-btn" onclick="playSoundAndNavigate('./kk11.html')">
+        </div>
+    </div>
+<!-- Audio elements -->
+<audio id="correct" src="./audio/soundtask/correct.mp3"></audio>
+<audio id="wrong" src="./audio/soundtask/wrong.mp3"></audio>
+<audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>	
+    <script>
+        function goBack() {
+            window.location.href = 'kk11.html';
+        }
+    </script>
+	
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const groups = document.querySelectorAll(".group");
+    const emptyBoxes = document.querySelectorAll(".empty-box");
+    const congratsMessage = document.getElementById("congratsMessage");
+
+    groups.forEach((group) => {
+      group.draggable = true;
+      group.addEventListener("dragstart", handleDragStart);
+    });
+
+    emptyBoxes.forEach((emptyBox) => {
+      emptyBox.addEventListener("dragover", handleDragOver);
+      emptyBox.addEventListener("drop", handleDrop);
+    });
+
+    function handleDragStart(event) {
+      event.dataTransfer.setData("text/plain", event.target.textContent);
+      // Set cursor style to move during drag
+      event.target.style.cursor = "move";
+    }
+
+    function handleDragOver(event) {
+      event.preventDefault();
+    }
+
+   function handleDrop(event) {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text/plain");
+    const droppedBox = event.target;
+    const isCorrect = checkCorrectness(droppedBox.id, data);
+
+    // Play the sound based on correctness
+    if (isCorrect) {
+        playAudio('correct') // Play sound for correct answer
+        droppedBox.style.backgroundColor = "green";
+    } else {
+        playAudio('wrong'); // Play sound for incorrect answer
+        droppedBox.style.backgroundColor = "red";
+    }
+
+    droppedBox.textContent = data;
+
+    if (isCorrect) {
+        const originalBox = document.querySelector(`.group:contains('${data}')`);
+        if (originalBox) {
+            originalBox.style.display = "none";
+        }
+    }
+
+    const allCorrect = Array.from(emptyBoxes).every(box => box.style.backgroundColor === "green");
+
+    if (allCorrect) {
+        congratsMessage.style.display = "block";
+    }
+}
+    function playAudio(audioId) {
+    var audio = document.getElementById(audioId);
+    if (audio) {
+        audio.play();
+    }
+}
+
+    // Custom function to check correctness
+    function checkCorrectness(boxId, droppedText) {
+      switch (boxId) {
+        case "box1":
+          return droppedText.toLowerCase() === "ditulis";
+        case "box2":
+          return droppedText.toLowerCase() === "dibeli";
+        default:
+          return false;
+      }
+    }
+
+    // Custom function to check if an element contains specific text
+    jQuery.expr[':'].contains = function (a, i, m) {
+      return jQuery(a).text().toUpperCase()
+        .indexOf(m[3].toUpperCase()) >= 0;
+    };
+  });
+</script>
+  <script>
+function playSoundAndNavigate(destination) {
+    var sound = document.getElementById('sound1');
+    
+    // Event listener for the 'ended' event of the audio element
+    sound.addEventListener('ended', function() {
+        // Navigate to the specified destination after the sound ends
+        window.location.href = destination;
+    });
+
+    // Play the sound when the button is clicked
+    sound.play();
+}
+</script>
+</body>
+</html>
+       
+	   
+	

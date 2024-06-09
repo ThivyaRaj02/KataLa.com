@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KaTaLa</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.png">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+
+ <style>
+        body {
+            margin: 0;
+            font-family: Comic Sans MS, Comic Sans MS;
+            background-color: #82d7fa; /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        h2 {
+            font-size: 40px;
+            margin-left: 150px; /* Adjust the margin to position it relative to the header */
+            align-items: center;
+			margin-top: -280px;
+			font-family: 'Cursive Font', cursive;
+        }
+
+.btn {
+max-width:450px;
+max-height:400px;
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #ffffff; /* White text color */
+    background: linear-gradient(to bottom, #1f3a93, #26528c); /* Dark Blue to Light Blue gradient */
+    border: 2px solid #1f3a93; /* Dark Blue border */
+    border-radius: 18px; /* Border radius for rounded corners */
+    transition: background 0.3s ease, transform 0.3s ease;
+	font-size:32px;
+}
+
+.btn:hover {
+    background: linear-gradient(to bottom, #26528c, #4682b4); /* Light Blue to Dark Blue gradient on hover */
+    transform: scale(1.1); /* Scale the button on hover */
+}
+
+.btn:active {
+    background: linear-gradient(to bottom, #4682b4, #87cefa); /* Light Sky Blue to Dark Blue gradient on click */
+    transform: scale(1.2); /* Scale the button more on click */
+}
+
+        .back-btn {
+            max-width: 8%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-right: 1050px;
+			margin-bottom: 40px;
+            cursor: pointer;
+            position: left;
+            bottom: 18px;
+            right: 10px;
+        }
+
+        .home-icon {
+            max-width: 38%; /* Adjust the size of the home icon */
+            height: auto;
+            margin-top: 130px;
+            margin-right: 850px;
+			margin-bottom: 40px;
+            cursor: pointer;
+        }
+	
+    </style>
+</head>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3775445581945009" crossorigin="anonymous"></script>
+<body>
+ <audio id="backgroundMusic" src="./audio/Bgm/bgm1.mp3" loop></audio>
+    <script src="script.js"></script>
+    <div class="container">
+        <div id="home" class="flex-center flex-column">
+            <img src="./assets/homeicon.png" width="350" class="home-icon">
+            <h2>Sila Pilih Kategori Yang Sesuai</h2>
+            
+			 
+            <a class="btn" button id="stopMusic" onclick="StopAndNavigate('./nota.html')">Nota</a>
+            <a class="btn" onclick="playSoundAndNavigate('./quiz.html')">Kuiz</a><audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>
+            <a class="btn" onclick="playSoundAndNavigate('./setting.html')">Tetapan</a><audio id="sound1" src="./audio/ButtonSound/sound1.mp3"></audio>
+            <img src="./assets/button-back.png" alt="Back Icon" class="back-btn" onclick="playSoundAndNavigate('./index.html')">
+			
+        </div>
+    </div>
+	
+
+  <script>
+function playSoundAndNavigate(destination) {
+    var sound = document.getElementById('sound1');
+    
+    // Event listener for the 'ended' event of the audio element
+    sound.addEventListener('ended', function() {
+        // Navigate to the specified destination after the sound ends
+        window.location.href = destination;
+    });
+
+    // Play the sound when the button is clicked
+    sound.play();
+}
+</script>
+ <script>
+const backgroundMusic = document.getElementById('backgroundMusic');
+const stopMusicButton = document.getElementById('stopMusic');
+
+document.addEventListener('mouseover', playBackgroundMusic);
+
+stopMusicButton.addEventListener('click', stopMusicAndGo);
+
+function playBackgroundMusic() {
+    backgroundMusic.play();
+}
+
+function stopMusicAndGo() {
+    backgroundMusic.pause();
+    // Add the URL of the page you want to navigate to
+    window.location.href ='./nota.html'
+}
+
+    </script>
+ <script>	
+	const interfaceElement = document.getElementById('interface');
+const bgm = document.getElementById('bgm1');
+
+interfaceElement.addEventListener('mouseover', playbgnd);
+
+function playHoverSound() {
+    hoverSound.play();
+}
+ </script>
+</body>
+</html>

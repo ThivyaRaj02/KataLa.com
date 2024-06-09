@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>KaTaLa</title>
+    <link rel="stylesheet" href="./app.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-K5Q5c4Pgea5O7bSC3lWtAG7DxU5V9kOmXNIE1A6eNpF4xU85bht7NSGuxwYtA9zmz8AP9V7fUOdoPBnT9FusYg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/jpg" href="./assets/logo.png">
+    <meta name="google-site-verification" content="iNzSj2wvdEOVu1PtrK5FfEiu_teOG2LQn5i3kg-xozQ" />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #82d7fa;
+            /* Sky Blue */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            align-items: center;
+            justify-content: center;
+        }
+
+        h2 {
+            font-size: 30px;
+            color: black;
+            /* Text color in hex format */
+            font-family: 'Cursive Font', cursive;
+            font-size: 40px;
+            margin-top: -40px;
+        }
+
+        .btn {
+            max-width: 80px;
+            max-height: 80px;
+            font-size: 24px;
+            padding: 10px 10px;
+            display: inline-block;
+            margin: 5px;
+            text-decoration: none;
+            color: #ffffff;
+            /* White text color */
+            background: linear-gradient(to bottom, #1f3a93, #26528c);
+            /* Dark Blue to Light Blue gradient */
+            border: 2px solid #1f3a93;
+            /* Dark Blue border */
+            border-radius: 18px;
+            /* Border radius for rounded corners */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to bottom, #26528c, #4682b4);
+            /* Light Blue to Dark Blue gradient on hover */
+            transform: scale(1.1);
+            /* Scale the button on hover */
+        }
+
+        .btn:active {
+            background: linear-gradient(to bottom, #4682b4, #87cefa);
+            /* Light Sky Blue to Dark Blue gradient on click */
+            transform: scale(1.2);
+            /* Scale the button more on click */
+        }
+
+        .back-btn {
+            max-width: 20%;
+            /* Adjust the size of the home icon */
+            height: auto;
+            margin-right: 1050px;
+            margin-bottom: 10px;
+            /* Adjusted margin to reduce bottom space */
+            cursor: pointer;
+            position: left;
+            right: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            /* Adjust the width as needed */
+            margin-top: 10px;
+            /* Adjust the margin as needed */
+            font-size: 24px;
+        }
+
+        .centered-btn {
+            font-size: 24px;
+            padding: 25px 38px;
+            margin: 5px;
+            margin-left: 180px;
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            /* White text color */
+            background: linear-gradient(to bottom, #1f3a93, #26528c);
+            /* Dark Blue to Light Blue gradient */
+            border: 2px solid #1f3a93;
+            /* Dark Blue border */
+            border-radius: 18px;
+            /* Border radius for rounded corners */
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .centered-btn:hover {
+            background: linear-gradient(to bottom, #26528c, #4682b4);
+            /* Light Blue to Dark Blue gradient on hover */
+            transform: scale(1.1);
+            /* Scale the button on hover */
+        }
+
+        .centered-btn:active {
+            background: linear-gradient(to bottom, #4682b4, #87cefa);
+            /* Light Sky Blue to Dark Blue gradient on click */
+            transform: scale(1.2);
+            /* Scale the button more on click */
+        }
+
+        .media-box {
+            padding: 50px;
+            margin-top: 10px;
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #1d82cf;
+            width: 500px;
+            text-align: center;
+            margin-right: 20px;
+            /* Added margin to separate the boxes */
+        }
+
+        .lain-lain-box {
+            border: 2px solid black;
+            border-radius: 10px;
+            background-color: #1d82cf;
+            padding: 40px;
+            width: 500px;
+            text-align: center;
+        }
+
+        .setting-icon {
+            max-width: 50%;
+            /* Adjust the size of the home icon */
+            height: auto;
+            margin-top: 130px;
+            margin-right: auto;
+            /* Center the image horizontally */
+            margin-bottom: 40px;
+            margin-left: auto;
+            /* Center the image horizontally */
+            cursor: pointer;
+        }
+
+        /* Add style for the popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #82d7fa;
+            border: 2px solid black;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        /* Style for the close button in the popup */
+        .popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+        }
+
+        .popup-content {
+            font-size: 22px;
+            text-align: left;
+        }
+
+        .share-icons {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+
+        .share-icons img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            transition: transform 0.3s ease; /* Add transition
+ /* Add transition */
+        }
+
+        /* Add hover effect to share icons */
+        .share-icons img:hover {
+            transform: scale(1.1); /* Scale the icon on hover */
+        }
+    </style>
+	<audio id="backgroundAudio" loop>
+  <source src="./audio/bgm/bgm1.mp3" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+<script>
+  window.onload = function() {
+    var backgroundAudio = document.getElementById('backgroundAudio');
+    backgroundAudio.play();
+  };
+</script>
+</head>
+
+<header>
+    <img src="./assets/homebutton.png" alt="Back Icon" class="back-btn" onclick="window.location.href='home.html'"
+        width="80" height="80">
+</header>
+
+<body>
+
+    <div class="button-container">
+        <div class="media-box">
+            <br>
+            <h2>Media</h2>
+
+            <h3>Bunyi</h3>
+            <img src="./assets/soundon.png" alt="sound on" class="btn" onclick="playSound()">
+            <img src="./assets/soundoff.png" alt="sound off" class="btn" onclick="stopSound()">
+
+            <h3>Getaran</h3>
+            <!-- Vibration control button with vibration icon -->
+            <img src="./assets/vibrate.png" alt="vibrate" class="btn" onclick="vibrate()">
+        </div>
+
+        <img src="./assets/tetapan.png" width="350" class="setting-icon">
+
+        <div class="lain-lain-box">
+            <br>
+            <h2>Lain-lain</h2>
+
+            <h3>Info Aplikasi</h3>
+            <!-- Info Aplikasi button with info icon -->
+            <img src="./assets/info.png" alt="info" class="btn" onclick="showPopup('infoPopup')">
+            <h3>Kongsi Aplikasi</h3>
+            <!-- Kongsi Aplikasi button with share icon -->
+            <img src="./assets/share.png" alt="share" class="btn" onclick="showPopup('sharePopup')">
+        </div>
+    </div>
+
+    <!-- Popup for Info Aplikasi -->
+    <div id="infoPopup" class="popup">
+        <span class="popup-close" onclick="closePopup('infoPopup')">&times;</span>
+        <div class="popup-content">
+            <p>Aplikasi web ini adalah untuk murid sekolah rendah tahun 1 hingga tahun 3 yang berusia antara 7 hingga 9
+                tahun bagi belajar dan memahami konsep “Golongan Kata” yang merangkumi dua modul iaitu modul pembelajaran
+                (nota) dan modul aktiviti (kuiz). Modul pembelajaran menumpukan kepada “Kata Nama”, “Kata Kerja”, “Kata
+                Adjektif”, “Kata Perintah”, dan “Kata Tanya”, manakala modul aktiviti menguji pemahaman murid melalui
+                kuiz dalam 5 jenis topik yang setiap satunya mengandungi 10 kuiz. Selain itu, terdapat modul ketiga iaitu
+                modul tetapan yang dikenali sebagai “Tetapan” di mana pengguna boleh mengawal bunyi muzik dan meletakkan
+                aplikasi dalam mod getar. Modul ini juga mengandungi maklumat aplikasi (“Info aplikasi”) dan pengguna
+                boleh berkongsi aplikasi dengan rakan dan keluarga melalui modul “Kongsi aplikasi”.</p>
+        </div>
+    </div>
+
+    <!-- Popup for Share Aplikasi -->
+    <div id="sharePopup" class="popup">
+        <span class="popup-close" onclick="closePopup('sharePopup')">&times;</span>
+        <div class="popup-content">
+            <p>Kongsi aplikasi melalui:</p>
+            <div class="share-icons">
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20this%20app!" target="_blank">
+                    <img src="./assets/watsapp.png" alt="WhatsApp">
+                </a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fyourwebsite.com" target="_blank">
+                    <img src="./assets/fb.png" alt="Facebook">
+                </a>
+                <a href="https://www.instagram.com/?url=https%3A%2F%2Fyourwebsite.com" target="_blank">
+                    <img src="./assets/insta.png" alt="Instagram">
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio element to play the sound -->
+    <audio id="sound" loop>
+        <source src="./audio/bgm/bgm1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Function to toggle mood for Bunyi and Getaran buttons
+        function toggleMood(mood) {
+            alert(mood + ' mood turned off.');
+        }
+
+        // Function to show popup
+        function showPopup(popupId) {
+            document.getElementById(popupId).style.display = 'block';
+        }
+
+        // Function to close popup
+        function closePopup(popupId) {
+            document.getElementById(popupId).style.display = 'none';
+        }
+
+        // Function to share application to WhatsApp
+        function shareToWhatsApp() {
+            // Your logic to share application to WhatsApp goes here
+            alert('Sharing to WhatsApp...');
+        }
+
+        // Function to share application to Facebook
+        function shareToFacebook() {
+            // Your logic to share application to Facebook goes here
+            alert('Sharing to Facebook...');
+        }
+
+        // Function to share application to Instagram
+        function shareToInstagram() {
+            // Your logic to share application to Instagram goes here
+            alert('Sharing to Instagram...');
+        }
+
+        // Function to play sound
+        function playSound() {
+            var audio = document.getElementById("sound");
+            audio.play();
+        }
+
+        // Function to stop sound
+        function stopSound() {
+            var audio = document.getElementById("sound");
+            audio.pause();
+            audio.currentTime = 0;
+        }
+
+        // Function to handle vibrating
+        function vibrate() {
+            // Your logic to vibrate goes here
+            alert('Vibrating...');
+        }
+    </script>
+</body>
+
+</html>
